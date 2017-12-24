@@ -7,12 +7,9 @@
 #include "assets.h" 
 
 void setup() {
-
-  Serial.begin(9600); 
   int i ; 
   int nb_led_horizontal = sizeof(LED_HORIZONTAL)/sizeof(int) ; 
 
-  Serial.println(nb_led_horizontal); 
   for (i = 0; i < nb_led_horizontal ; i++) {
     pinMode(LED_HORIZONTAL[i], OUTPUT) ; 
     digitalWrite(LED_HORIZONTAL[i], LOW) ; 
@@ -31,17 +28,9 @@ void setup() {
 }
 
 void loop() {
- // delay(2000); 
-  // put your main code here, to run repeatedly:
-  //int horizontal_value = analogRead(PWM_HORIZONTAL) ; 
-  //int vertical_value = analogRead(PWM_VERTICAL); 
-
- // Serial.println(horizontal_value);
 
   double horizontal_value = pulseIn(PWM_HORIZONTAL, HIGH);
   double vertical_value = pulseIn(PWM_VERTICAL, HIGH);
-
-  //Serial.println(pwm_value);
 
   int nb_rates = sizeof(RATE_HORIZONTAL)/sizeof(int); 
   int nb_led_horizontal = sizeof(LED_HORIZONTAL)/sizeof(int);
