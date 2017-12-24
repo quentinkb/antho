@@ -23,13 +23,21 @@ void loop() {
   int horizontal_value = analogRead(PWM_HORIZONTAL) ; 
   int vertical_value = analogRead(PWM_VERTICAL); 
 
-  // horizontal treatment left 
   int nb_rates = sizeof(RATE_HORIZONTAL)/sizeof(int); 
   int nb_led_horizontal = sizeof(LED_HORIZONTAL)/sizeof(int);
   if (nb_rates == nb_led_horizontal) {
     int j ; 
+     // horizontal treatment left 
     for(j = 0 ; j < nb_rates -3 ; j++) {
        if (horizontal_value < RATE_HORIZONTAL[j]) {
+          digitalWrite(LED_HORIZONTAL[j],HIGH) ; 
+       } else {
+          digitalWrite(LED_HORIZONTAL[j],LOW) ; 
+       }
+    }
+     // horizontal treatment right 
+    for(j = 3 ; j < nb_rates ; j++) {
+       if (horizontal_value > RATE_HORIZONTAL[j]) {
           digitalWrite(LED_HORIZONTAL[j],HIGH) ; 
        } else {
           digitalWrite(LED_HORIZONTAL[j],LOW) ; 
