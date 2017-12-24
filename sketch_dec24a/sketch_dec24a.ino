@@ -1,7 +1,6 @@
 #include "assets.h" 
 
 void setup() {
-  // put your setup code here, to run once:
   int i ; 
   int nb_led_horizontal = sizeof(LED_HORIZONTAL)/sizeof(int) ; 
   for (i = 0; i < nb_led_horizontal ; i++) {
