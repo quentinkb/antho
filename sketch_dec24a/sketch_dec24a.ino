@@ -45,4 +45,27 @@ void loop() {
     }
   }
 
+  nb_rates = sizeof(RATE_VERTICAL)/sizeof(int); 
+  int nb_led_vertical = sizeof(LED_VERTICAL)/sizeof(int);
+  if (nb_rates == nb_led_vertical) {
+    int j ; 
+     // vertical treatment low 
+    for(j = 0 ; j < nb_rates -3 ; j++) {
+       if (vertical_value < RATE_VERTICAL[j]) {
+          digitalWrite(LED_VERTICAL[j],HIGH) ; 
+       } else {
+          digitalWrite(LED_VERTICAL[j],LOW) ; 
+       }
+    }
+     // vertical treatment high 
+    for(j = 3 ; j < nb_rates ; j++) {
+       if (vertical_value > RATE_VERTICAL[j]) {
+          digitalWrite(LED_VERTICAL[j],HIGH) ; 
+       } else {
+          digitalWrite(LED_VERTICAL[j],LOW) ; 
+       }
+    }
+  }
+
+
 }
