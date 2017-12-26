@@ -13,7 +13,7 @@ void setup() {
   for (i = 0; i < nb_led_horizontal ; i++) {
     pinMode(LED_HORIZONTAL[i], OUTPUT) ; 
     digitalWrite(LED_HORIZONTAL[i], LOW) ; 
-    Serial.println("setting low"); 
+    //Serial.println("setting low"); 
   }
 
   int nb_led_vertical = sizeof(LED_VERTICAL)/sizeof(int) ; 
